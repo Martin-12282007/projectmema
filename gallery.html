@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About | Hello World</title>
+  <title>Gallery | Hello World</title>
   <style>
     :root {
       color-scheme: dark;
@@ -24,9 +24,9 @@
       justify-content: center;
       padding: 88px 20px 32px;
       background:
-        radial-gradient(circle at 12% 22%, rgba(88, 196, 175, 0.34), transparent 30%),
-        radial-gradient(circle at 82% 20%, rgba(255, 126, 95, 0.28), transparent 34%),
-        radial-gradient(circle at 72% 82%, rgba(245, 214, 92, 0.2), transparent 38%),
+        radial-gradient(circle at 16% 18%, rgba(245, 214, 92, 0.24), transparent 32%),
+        radial-gradient(circle at 82% 20%, rgba(88, 196, 175, 0.28), transparent 34%),
+        radial-gradient(circle at 70% 86%, rgba(255, 126, 95, 0.26), transparent 38%),
         linear-gradient(135deg, #101114 0%, #1a1f24 58%, #101114 100%);
     }
 
@@ -66,8 +66,8 @@
     }
 
     main {
-      width: min(92vw, 820px);
-      padding: clamp(34px, 6vw, 70px);
+      width: min(94vw, 980px);
+      padding: clamp(32px, 5vw, 64px);
       border: 1px solid rgba(255, 255, 255, 0.16);
       border-radius: 8px;
       background: rgba(17, 19, 23, 0.68);
@@ -88,8 +88,8 @@
     }
 
     .eyebrow {
-      margin: 0 0 18px;
-      color: #ffd166;
+      margin: 0 0 16px;
+      color: #58c4af;
       font-size: 0.78rem;
       font-weight: 700;
       letter-spacing: 0.18em;
@@ -97,9 +97,9 @@
     }
 
     h1 {
-      max-width: 680px;
+      max-width: 760px;
       margin: 0;
-      font-size: clamp(3.4rem, 10vw, 7rem);
+      font-size: clamp(3.3rem, 8vw, 7rem);
       line-height: 0.95;
       letter-spacing: 0;
       text-transform: uppercase;
@@ -107,51 +107,78 @@
     }
 
     h1 span {
-      color: #58c4af;
+      color: #ff7e5f;
     }
 
-    p {
-      max-width: 650px;
-      margin: 24px 0 0;
+    .intro {
+      max-width: 640px;
+      margin: 22px 0 0;
       color: #d8d3c8;
-      font-size: clamp(1rem, 2.2vw, 1.2rem);
-      line-height: 1.75;
+      font-size: clamp(1rem, 2vw, 1.15rem);
+      line-height: 1.7;
     }
 
-    .stats {
+    .gallery {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
+      gap: 14px;
       margin-top: 34px;
     }
 
-    .stat {
-      min-height: 110px;
-      padding: 20px;
+    .tile {
+      min-height: 180px;
+      display: flex;
+      align-items: flex-end;
+      padding: 18px;
       border: 1px solid rgba(255, 255, 255, 0.12);
       border-radius: 8px;
-      background: rgba(255, 255, 255, 0.07);
+      overflow: hidden;
+      position: relative;
+      background: linear-gradient(135deg, rgba(255, 126, 95, 0.9), rgba(255, 209, 102, 0.8));
+      box-shadow: inset 0 -80px 90px rgba(0, 0, 0, 0.28);
     }
 
-    .stat strong {
-      display: block;
+    .tile::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(120deg, rgba(255, 255, 255, 0.22), transparent 36%),
+        radial-gradient(circle at 78% 22%, rgba(255, 255, 255, 0.34), transparent 18%);
+      opacity: 0.95;
+    }
+
+    .tile:nth-child(2) {
+      background: linear-gradient(135deg, rgba(88, 196, 175, 0.9), rgba(50, 86, 116, 0.82));
+    }
+
+    .tile:nth-child(3) {
+      background: linear-gradient(135deg, rgba(245, 214, 92, 0.92), rgba(255, 126, 95, 0.74));
+    }
+
+    .tile:nth-child(4) {
+      background: linear-gradient(135deg, rgba(86, 112, 180, 0.9), rgba(88, 196, 175, 0.74));
+    }
+
+    .tile:nth-child(5) {
+      background: linear-gradient(135deg, rgba(255, 126, 95, 0.82), rgba(70, 64, 96, 0.9));
+    }
+
+    .tile:nth-child(6) {
+      background: linear-gradient(135deg, rgba(88, 196, 175, 0.84), rgba(255, 209, 102, 0.78));
+    }
+
+    .tile span {
+      position: relative;
       color: #ffffff;
-      font-size: 1.8rem;
-      line-height: 1;
+      font-size: 1.02rem;
+      font-weight: 800;
+      text-shadow: 0 2px 16px rgba(0, 0, 0, 0.45);
     }
 
-    .stat span {
-      display: block;
-      margin-top: 10px;
-      color: #bcb6aa;
-      font-size: 0.92rem;
-      line-height: 1.4;
-    }
-
-    @media (max-width: 640px) {
+    @media (max-width: 760px) {
       body {
         align-items: flex-start;
-        overflow: auto;
       }
 
       nav {
@@ -164,7 +191,7 @@
         padding-inline: 8px;
       }
 
-      .stats {
+      .gallery {
         grid-template-columns: 1fr;
       }
     }
@@ -173,30 +200,23 @@
 <body>
   <nav aria-label="Primary navigation">
     <a href="index.html">Home</a>
-    <a href="about.html" aria-current="page">About</a>
-    <a href="gallery.html">Gallery</a>
+    <a href="about.html">About</a>
+    <a href="gallery.html" aria-current="page">Gallery</a>
     <a href="contact.html">Contact</a>
   </nav>
 
   <main>
-    <p class="eyebrow">About this little site</p>
-    <h1>Small page, <span>big polish.</span></h1>
-    <p>This project started as a simple hello and grew into a three-page mini site with a consistent mood, clear navigation, and enough style to feel intentional.</p>
-    <p>It is built as plain HTML and CSS, so it opens quickly and works anywhere without setup.</p>
+    <p class="eyebrow">Gallery</p>
+    <h1>A little wall of <span>moments.</span></h1>
+    <p class="intro">A fancy placeholder gallery with luminous color panels, ready to swap in real photos whenever the collection grows.</p>
 
-    <section class="stats" aria-label="Site highlights">
-      <div class="stat">
-        <strong>04</strong>
-        <span>Connected pages</span>
-      </div>
-      <div class="stat">
-        <strong>0</strong>
-        <span>Required dependencies</span>
-      </div>
-      <div class="stat">
-        <strong>100%</strong>
-        <span>Handmade sparkle</span>
-      </div>
+    <section class="gallery" aria-label="Featured gallery items">
+      <div class="tile"><span>Golden Start</span></div>
+      <div class="tile"><span>Sea Glass</span></div>
+      <div class="tile"><span>Warm Signal</span></div>
+      <div class="tile"><span>Evening Pulse</span></div>
+      <div class="tile"><span>Soft Ember</span></div>
+      <div class="tile"><span>Bright Drift</span></div>
     </section>
   </main>
 </body>
