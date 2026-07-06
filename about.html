@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hello World</title>
+  <title>About | Hello World</title>
   <style>
     :root {
       color-scheme: dark;
@@ -23,11 +23,10 @@
       align-items: center;
       justify-content: center;
       padding: 88px 20px 32px;
-      overflow: hidden;
       background:
-        radial-gradient(circle at 18% 20%, rgba(255, 126, 95, 0.34), transparent 32%),
-        radial-gradient(circle at 82% 16%, rgba(88, 196, 175, 0.28), transparent 34%),
-        radial-gradient(circle at 70% 84%, rgba(245, 214, 92, 0.18), transparent 38%),
+        radial-gradient(circle at 12% 22%, rgba(88, 196, 175, 0.34), transparent 30%),
+        radial-gradient(circle at 82% 20%, rgba(255, 126, 95, 0.28), transparent 34%),
+        radial-gradient(circle at 72% 82%, rgba(245, 214, 92, 0.2), transparent 38%),
         linear-gradient(135deg, #101114 0%, #1a1f24 58%, #101114 100%);
     }
 
@@ -67,14 +66,13 @@
     }
 
     main {
-      width: min(92vw, 760px);
-      padding: clamp(36px, 7vw, 76px);
+      width: min(92vw, 820px);
+      padding: clamp(34px, 6vw, 70px);
       border: 1px solid rgba(255, 255, 255, 0.16);
       border-radius: 8px;
-      background: rgba(17, 19, 23, 0.66);
+      background: rgba(17, 19, 23, 0.68);
       box-shadow: 0 32px 90px rgba(0, 0, 0, 0.45);
       backdrop-filter: blur(22px);
-      text-align: center;
       position: relative;
       isolation: isolate;
     }
@@ -91,7 +89,7 @@
 
     .eyebrow {
       margin: 0 0 18px;
-      color: #58c4af;
+      color: #ffd166;
       font-size: 0.78rem;
       font-weight: 700;
       letter-spacing: 0.18em;
@@ -99,84 +97,105 @@
     }
 
     h1 {
+      max-width: 680px;
       margin: 0;
-      font-size: clamp(4rem, 13vw, 8.8rem);
-      line-height: 0.88;
+      font-size: clamp(3.4rem, 10vw, 7rem);
+      line-height: 0.95;
       letter-spacing: 0;
       text-transform: uppercase;
       text-shadow: 0 10px 32px rgba(0, 0, 0, 0.36);
     }
 
     h1 span {
-      display: block;
-      color: #ffd166;
+      color: #58c4af;
     }
 
     p {
-      width: min(100%, 560px);
-      margin: 26px auto 0;
+      max-width: 650px;
+      margin: 24px 0 0;
       color: #d8d3c8;
-      font-size: clamp(1rem, 2.5vw, 1.25rem);
-      line-height: 1.7;
+      font-size: clamp(1rem, 2.2vw, 1.2rem);
+      line-height: 1.75;
     }
 
-    .sparkline {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
       margin-top: 34px;
     }
 
-    .sparkline i {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: #ff7e5f;
-      box-shadow: 0 0 22px rgba(255, 126, 95, 0.7);
-      animation: float 1.7s ease-in-out infinite;
+    .stat {
+      min-height: 110px;
+      padding: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.07);
     }
 
-    .sparkline i:nth-child(2) {
-      background: #ffd166;
-      animation-delay: 0.16s;
-      box-shadow: 0 0 22px rgba(255, 209, 102, 0.68);
+    .stat strong {
+      display: block;
+      color: #ffffff;
+      font-size: 1.8rem;
+      line-height: 1;
     }
 
-    .sparkline i:nth-child(3) {
-      background: #58c4af;
-      animation-delay: 0.32s;
-      box-shadow: 0 0 22px rgba(88, 196, 175, 0.68);
+    .stat span {
+      display: block;
+      margin-top: 10px;
+      color: #bcb6aa;
+      font-size: 0.92rem;
+      line-height: 1.4;
     }
 
-    @keyframes float {
-      0%, 100% {
-        transform: translateY(0);
-        opacity: 0.72;
+    @media (max-width: 640px) {
+      body {
+        align-items: flex-start;
+        overflow: auto;
       }
 
-      50% {
-        transform: translateY(-10px);
-        opacity: 1;
+      nav {
+        width: calc(100% - 32px);
+      }
+
+      nav a {
+        min-width: 0;
+        flex: 1;
+      }
+
+      .stats {
+        grid-template-columns: 1fr;
       }
     }
   </style>
 </head>
 <body>
   <nav aria-label="Primary navigation">
-    <a href="hello-world.html" aria-current="page">Home</a>
-    <a href="about.html">About</a>
+    <a href="hello-world.html">Home</a>
+    <a href="about.html" aria-current="page">About</a>
     <a href="contact.html">Contact</a>
   </nav>
 
   <main>
-    <p class="eyebrow">A tiny page with a little ceremony</p>
-    <h1>Hello <span>World</span></h1>
-    <p>Welcome to a brighter first file: crisp glass, warm color, and a greeting dressed up for the occasion.</p>
-    <div class="sparkline" aria-hidden="true">
-      <i></i>
-      <i></i>
-      <i></i>
-    </div>
+    <p class="eyebrow">About this little site</p>
+    <h1>Small page, <span>big polish.</span></h1>
+    <p>This project started as a simple hello and grew into a three-page mini site with a consistent mood, clear navigation, and enough style to feel intentional.</p>
+    <p>It is built as plain HTML and CSS, so it opens quickly and works anywhere without setup.</p>
+
+    <section class="stats" aria-label="Site highlights">
+      <div class="stat">
+        <strong>03</strong>
+        <span>Connected pages</span>
+      </div>
+      <div class="stat">
+        <strong>0</strong>
+        <span>Required dependencies</span>
+      </div>
+      <div class="stat">
+        <strong>100%</strong>
+        <span>Handmade sparkle</span>
+      </div>
+    </section>
   </main>
 </body>
 </html>
